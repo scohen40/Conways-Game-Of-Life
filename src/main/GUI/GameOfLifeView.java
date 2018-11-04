@@ -1,5 +1,6 @@
 package main.GUI;
 
+import main.Cell;
 import main.Grid;
 
 import javax.swing.*;
@@ -16,36 +17,37 @@ public class GameOfLifeView extends JComponent {
 
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-
         Graphics2D g = (Graphics2D) graphics;
 
-        paintGrid(g);
-
-    }
-
-    public void paintGrid(Graphics2D g) {
         canvasColWidth = this.getWidth()/BoardProperties.BOARD_COLUMNS;
         canvasRowHeight = this.getHeight()/BoardProperties.BOARD_ROWS;
 
-        Graphics2D g2 = (Graphics2D) g;
-        Color grey = new Color(180, 180, 180);
-        BasicStroke bs = new BasicStroke(3, 1, BasicStroke.CAP_ROUND);
-        g2.setStroke(bs);
-        g.setColor(Color.black);
-
-        g.setColor(BoardProperties.gray);
-        for( int r = 0; r < BoardProperties.BOARD_ROWS; r++) {
-            for( int c = 0; c < BoardProperties.BOARD_COLUMNS; c++) {
-//                g.drawLine(r * canvasColWidth, 0, r * canvasColWidth, grid.getColumns() * canvasColWidth);
-//               g.drawLine(0,c * canvasRowHeight, grid.getRows() * canvasRowHeight , c * canvasRowHeight);
-
-                g.drawLine(0, r * canvasColWidth, grid.getColumns() * canvasColWidth,r * canvasColWidth);
-                g.drawLine(c * canvasRowHeight,0, c * canvasRowHeight, grid.getRows() * canvasRowHeight );
-            }
-        }
-//        g.drawLine();
-
-
+        paintBackground(g);
+        paintGrid(g);
     }
 
+    private void paintBackground(Graphics2D g) {
+        setBackground(BoardProperties.gray);
+        setOpaque(true);
+    }
+
+    public void paintGrid(Graphics2D g) {
+        BasicStroke bs = new BasicStroke(3, 1, BasicStroke.CAP_ROUND);
+        g.setStroke(bs);
+
+        Cell cell;
+
+        for( int r = 0; r < BoardProperties.BOARD_ROWS; r++) {
+            for( int c = 0; c < BoardProperties.BOARD_COLUMNS; c++) {
+                cell = grid.getGrid()[r][c];
+                if ((cell.getState() == Cell.State.neverLived) || (cell.getState()== Cell.State.dead)) {
+                    g.setColor(BoardProperties.white);
+                }
+                else if(cell.getState() == Cell.State.alive) {
+                    g.setColor(BoardProperties.black);
+                }
+                g.fill3DRect(c * canvasColWidth + 7, r * canvasRowHeight + 7, (int)(canvasColWidth/1.3), (int)(canvasRowHeight/1.2), false);
+            }
+        }
+    }
 }
