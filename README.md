@@ -9,9 +9,8 @@
 ***
 * GameOfLife Rules
 * GameOfLife Rules Test
-* JPanel
-* PaintComponents
-* Animation
+* JPanel Repaint and Rules Connection
+* Animation - timer
 
 **OPTIONAL TO DO**
 ***
