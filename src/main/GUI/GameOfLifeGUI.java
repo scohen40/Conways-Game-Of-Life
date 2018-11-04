@@ -17,9 +17,9 @@ public class GameOfLifeGUI extends JFrame {
     public GameOfLifeGUI () {
         panel = new JPanel();
         setTitle("Conway's Game of Life");
-        setSize(500, 500);
+        setSize(500, 500);         //To Do - Figure out a way for the width and height to not be the same
         grid = (new GridBuilder(BoardProperties.BOARD_ROWS, BoardProperties.BOARD_COLUMNS).getGrid());
-        gameView = new GameOfLifeView(grid, this.getWidth() / BoardProperties.BOARD_COLUMNS, this.getHeight()/BoardProperties.BOARD_ROWS);
+        gameView = new GameOfLifeView(grid);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

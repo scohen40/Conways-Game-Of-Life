@@ -10,10 +10,8 @@ public class GameOfLifeView extends JComponent {
     private int canvasColWidth;
     private int canvasRowHeight;
 
-    public GameOfLifeView(Grid grid, int canvasColWidth, int canvasRowHeight) {
+    public GameOfLifeView(Grid grid) {
         this.grid = grid;
-        this.canvasColWidth = canvasColWidth;
-        this.canvasRowHeight = canvasRowHeight;
     }
 
     public void paintComponent(Graphics graphics) {
@@ -26,14 +24,14 @@ public class GameOfLifeView extends JComponent {
     }
 
     public void paintGrid(Graphics2D g) {
-//        canvasColWidth = this.getWidth()/BoardProperties.BOARD_COLUMNS;
-//        canvasRowHeight = this.getHeight()/BoardProperties.BOARD_ROWS;
+        canvasColWidth = this.getWidth()/BoardProperties.BOARD_COLUMNS;
+        canvasRowHeight = this.getHeight()/BoardProperties.BOARD_ROWS;
 
-//        Graphics2D g2 = (Graphics2D) g;
-//        Color grey = new Color(180, 180, 180);
-//        BasicStroke bs = new BasicStroke(3, 1, BasicStroke.CAP_ROUND);
-//        g2.setStroke(bs);
-//        g.setColor(Color.black);
+        Graphics2D g2 = (Graphics2D) g;
+        Color grey = new Color(180, 180, 180);
+        BasicStroke bs = new BasicStroke(3, 1, BasicStroke.CAP_ROUND);
+        g2.setStroke(bs);
+        g.setColor(Color.black);
 
         g.setColor(BoardProperties.gray);
         for( int r = 0; r < BoardProperties.BOARD_ROWS; r++) {
@@ -45,6 +43,7 @@ public class GameOfLifeView extends JComponent {
                 g.drawLine(c * canvasRowHeight,0, c * canvasRowHeight, grid.getRows() * canvasRowHeight );
             }
         }
+//        g.drawLine();
 
 
     }

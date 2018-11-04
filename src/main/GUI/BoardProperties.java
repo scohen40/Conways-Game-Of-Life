@@ -8,9 +8,10 @@ import java.awt.*;
  */
 class BoardProperties {
 
+
     // GameBoard.
-    static final int BOARD_COLUMNS   = 5;
-    static final int BOARD_ROWS      = 3;
+    static final int BOARD_COLUMNS   = 10;//To Do - figure out a way for the rows and columns to not have to be the same
+    static final int BOARD_ROWS      = 10;
     static final int SQUARE_SIZE     = 20;
 
     // Preset colors
