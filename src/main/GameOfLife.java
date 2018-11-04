@@ -6,6 +6,7 @@ public class GameOfLife {
     public GameOfLife(Grid grid){
         this.grid = grid;
 
+
     }
 
 }
