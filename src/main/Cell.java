@@ -5,7 +5,7 @@ public class Cell {
     private int columnLocation;
     private int id;
 
-    enum State{
+    public enum State{
         alive,
         dead,
         neverLived
