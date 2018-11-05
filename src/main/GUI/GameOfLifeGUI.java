@@ -6,6 +6,8 @@ import main.GridBuilder;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Properties;
 
 public class GameOfLifeGUI extends JFrame {
@@ -14,15 +16,26 @@ public class GameOfLifeGUI extends JFrame {
     private GameOfLifeView gameView;
 
 
-
-    public GameOfLifeGUI () {
+    public GameOfLifeGUI() {
         panel = new JPanel();
         setTitle("Conway's Game of Life");
         setSize(600, 600);         //To Do - Figure out a way for the width and height to not be the same
+        final GridBuilder builder = new GridBuilder(BoardProperties.BOARD_ROWS, BoardProperties.BOARD_COLUMNS);
 
+        grid = (builder.getGrid());
 
-        grid = (new GridBuilder(BoardProperties.BOARD_ROWS, BoardProperties.BOARD_COLUMNS).getGrid());
         gameView = new GameOfLifeView(grid);
+        ActionListener listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                builder.createNewGeneration(grid);
+                gameView.setGrid(builder.getGrid());
+                repaint();
+            }
+        };
+        Timer timer = new Timer(2000, listener);
+        timer.setRepeats(true);
+        timer.start();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -36,7 +49,12 @@ public class GameOfLifeGUI extends JFrame {
 
 
     public static void main(String[] args) {
-        new GameOfLifeGUI().setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GameOfLifeGUI().setVisible(true);
+            }
+        });
     }
 }
 
