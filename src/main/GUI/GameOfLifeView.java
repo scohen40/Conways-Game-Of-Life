@@ -1,7 +1,7 @@
-package src.main.GUI;
+package main.GUI;
 
-import src.main.Cell;
-import src.main.Grid;
+import main.Cell;
+import main.Grid;
 
 import javax.swing.*;
 import java.awt.*;

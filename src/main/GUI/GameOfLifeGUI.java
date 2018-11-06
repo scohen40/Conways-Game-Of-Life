@@ -1,25 +1,15 @@
-package src.main.GUI;
+package main.GUI;
 
-<<<<<<< HEAD
-
-import src.main.Grid;
-import src.main.GridBuilder;
-=======
 import main.GameOfLife;
 import main.Grid;
 import main.GridBuilder;
->>>>>>> 73715f37979eba63125b870e7fc1c62576f96f18
 
 import javax.swing.*;
-
+import javax.swing.border.Border;
 import java.awt.*;
-<<<<<<< HEAD
-
-=======
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
->>>>>>> 73715f37979eba63125b870e7fc1c62576f96f18
 
 public class GameOfLifeGUI extends JFrame {
     private JPanel panel;
