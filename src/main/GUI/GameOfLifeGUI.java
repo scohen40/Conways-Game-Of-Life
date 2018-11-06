@@ -1,5 +1,6 @@
 package main.GUI;
 
+import main.GameOfLife;
 import main.Grid;
 import main.GridBuilder;
 
@@ -14,26 +15,24 @@ public class GameOfLifeGUI extends JFrame {
     private JPanel panel;
     private Grid grid;
     private GameOfLifeView gameView;
-
+    private GameOfLife game;
 
     public GameOfLifeGUI() {
         panel = new JPanel();
         setTitle("Conway's Game of Life");
         setSize(600, 600);         //To Do - Figure out a way for the width and height to not be the same
-        final GridBuilder builder = new GridBuilder(BoardProperties.BOARD_ROWS, BoardProperties.BOARD_COLUMNS);
-
-        grid = (builder.getGrid());
+        grid = (new GridBuilder(BoardProperties.BOARD_ROWS,BoardProperties.BOARD_COLUMNS).getGrid());
 
         gameView = new GameOfLifeView(grid);
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                builder.createNewGeneration(grid);
-                gameView.setGrid(builder.getGrid());
+                game = new GameOfLife(grid);
+                gameView.setGrid(game.grid);
                 repaint();
             }
         };
-        Timer timer = new Timer(2000, listener);
+        Timer timer = new Timer(4000, listener);
         timer.setRepeats(true);
         timer.start();
 
