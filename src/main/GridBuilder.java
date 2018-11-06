@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Random;
+
 public class GridBuilder {
     private Grid grid;
     private int rows;
@@ -16,10 +18,20 @@ public class GridBuilder {
 
     private void buildGrid() {
         int counter = 0;
+        Random rand = new Random();
         for (int row = 0; row < grid.getGrid().length; row++) {
             for (int col = 0; col < grid.getGrid().length; col++) {
                 grid.getGrid()[row][col] = new Cell(row, col);
-                grid.getGrid()[row][col].setState(Cell.State.neverLived);
+                switch (rand.nextInt(2)) {
+                    case 0:
+                        grid.getGrid()[row][col].setState(Cell.State.alive);
+                        break;
+                    case 1:
+                        grid.getGrid()[row][col].setState(Cell.State.dead);
+                        break;
+                    default:
+                        grid.getGrid()[row][col].setState(Cell.State.neverLived);
+                }
                 grid.getGrid()[row][col].setId(counter);
                 counter++;
             }
@@ -49,4 +61,5 @@ public class GridBuilder {
     public void setColumns(int columns) {
         this.columns = columns;
     }
+
 }
