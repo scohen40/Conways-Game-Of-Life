@@ -5,11 +5,9 @@ import main.Grid;
 import main.GridBuilder;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Properties;
 
 public class GameOfLifeGUI extends JFrame {
     private JPanel panel;
@@ -32,7 +30,7 @@ public class GameOfLifeGUI extends JFrame {
                 repaint();
             }
         };
-        Timer timer = new Timer(4000, listener);
+        Timer timer = new Timer(1000, listener);
         timer.setRepeats(true);
         timer.start();
 
