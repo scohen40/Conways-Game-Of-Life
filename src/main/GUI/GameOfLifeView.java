@@ -7,11 +7,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameOfLifeView extends JComponent {
+
+
     private Grid grid;
     private int canvasColWidth;
     private int canvasRowHeight;
 
     public GameOfLifeView(Grid grid) {
+        this.grid = grid;
+    }
+
+    public void setGrid(Grid grid) {
         this.grid = grid;
     }
 
