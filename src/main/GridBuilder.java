@@ -1,4 +1,4 @@
-package main;
+package src.main;
 
 public class GridBuilder {
     private Grid grid;

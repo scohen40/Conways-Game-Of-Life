@@ -1,4 +1,4 @@
-package main;
+package src.main;
 
 public class Grid {
     private Cell[][] grid;

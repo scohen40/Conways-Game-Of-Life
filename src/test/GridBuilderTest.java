@@ -1,9 +1,8 @@
-package test;
+package src.test;
 
-import main.Grid;
-import main.GridBuilder;
-import org.junit.jupiter.api.Test;
-
+import src.main.Grid;
+import src.main.GridBuilder;
+import org.junit.Test;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;

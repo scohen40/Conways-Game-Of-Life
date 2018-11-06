@@ -1,4 +1,4 @@
-package main.GUI;
+package src.main.GUI;
 
 import java.awt.*;
 

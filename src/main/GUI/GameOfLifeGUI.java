@@ -1,12 +1,13 @@
-package main.GUI;
+package src.main.GUI;
 
-import main.Grid;
-import main.GridBuilder;
+
+import src.main.Grid;
+import src.main.GridBuilder;
 
 import javax.swing.*;
-import javax.swing.border.Border;
+
 import java.awt.*;
-import java.util.Properties;
+
 
 public class GameOfLifeGUI extends JFrame {
     private JPanel panel;
