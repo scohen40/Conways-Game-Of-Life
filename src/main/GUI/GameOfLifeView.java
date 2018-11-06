@@ -25,8 +25,8 @@ public class GameOfLifeView extends JComponent {
         super.paintComponent(graphics);
         Graphics2D g = (Graphics2D) graphics;
 
-        canvasColWidth = this.getWidth()/BoardProperties.BOARD_COLUMNS;
-        canvasRowHeight = this.getHeight()/BoardProperties.BOARD_ROWS;
+        canvasColWidth = this.getWidth() / BoardProperties.BOARD_COLUMNS;
+        canvasRowHeight = this.getHeight() / BoardProperties.BOARD_ROWS;
 
         paintBackground(g);
         paintGrid(g);
@@ -43,16 +43,15 @@ public class GameOfLifeView extends JComponent {
 
         Cell cell;
 
-        for( int r = 0; r < BoardProperties.BOARD_ROWS; r++) {
-            for( int c = 0; c < BoardProperties.BOARD_COLUMNS; c++) {
+        for (int r = 0; r < BoardProperties.BOARD_ROWS; r++) {
+            for (int c = 0; c < BoardProperties.BOARD_COLUMNS; c++) {
                 cell = grid.getGrid()[r][c];
-                if ((cell.getState() == Cell.State.neverLived) || (cell.getState()== Cell.State.dead)) {
+                if ((cell.getState() == Cell.State.neverLived) || (cell.getState() == Cell.State.dead)) {
                     g.setColor(BoardProperties.white);
-                }
-                else if(cell.getState() == Cell.State.alive) {
+                } else if (cell.getState() == Cell.State.alive) {
                     g.setColor(BoardProperties.black);
                 }
-                g.fill3DRect(c * canvasColWidth + 7, r * canvasRowHeight + 7, (int)(canvasColWidth/1.3), (int)(canvasRowHeight/1.2), false);
+                g.fill3DRect(c * canvasColWidth + 7, r * canvasRowHeight + 7, (int) (canvasColWidth / 1.3), (int) (canvasRowHeight / 1.2), false);
             }
         }
     }
