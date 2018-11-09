@@ -14,3 +14,8 @@
 * Different Sized Grid Options
 * Different Pattern Options
 * Different Timer Options
+
+***Authors of this Application***
+***
+* Chava Forer
+* Sarah Cohen
