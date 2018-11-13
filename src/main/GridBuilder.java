@@ -22,13 +22,29 @@ public class GridBuilder {
         for (int row = 0; row < grid.getGrid().length; row++) {
             for (int col = 0; col < grid.getGrid().length; col++) {
                 grid.getGrid()[row][col] = new Cell(row, col);
-                switch (rand.nextInt(2)) {
+                switch (rand.nextInt(7)) {
                     case 0:
                         grid.getGrid()[row][col].setState(Cell.State.alive);
                         break;
                     case 1:
                         grid.getGrid()[row][col].setState(Cell.State.dead);
                         break;
+                    case 2:
+                        grid.getGrid()[row][col].setState(Cell.State.dead);
+                        break;
+                    case 3:
+                        grid.getGrid()[row][col].setState(Cell.State.dead);
+                        break;
+                    case 4:
+                        grid.getGrid()[row][col].setState(Cell.State.dead);
+                        break;
+                    case 5:
+                        grid.getGrid()[row][col].setState(Cell.State.dead);
+                        break;
+                    case 6:
+                        grid.getGrid()[row][col].setState(Cell.State.dead);
+                        break;
+
                     default:
                         grid.getGrid()[row][col].setState(Cell.State.neverLived);
                 }

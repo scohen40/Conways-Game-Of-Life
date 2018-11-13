@@ -7,12 +7,10 @@
 
 **TO DO**
 ***
-* GameOfLife Rules
 * GameOfLife Rules Test
-* JPanel Repaint and Rules Connection
-* Animation - timer
 
 **OPTIONAL TO DO**
 ***
-* Different Sized Grids
+* Different Sized Grid Options
 * Different Pattern Options
+* Different Timer Options
