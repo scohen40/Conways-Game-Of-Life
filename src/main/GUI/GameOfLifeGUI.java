@@ -5,11 +5,9 @@ import main.Grid;
 import main.GridBuilder;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Properties;
 
 public class GameOfLifeGUI extends JFrame {
     private JPanel panel;
@@ -24,15 +22,16 @@ public class GameOfLifeGUI extends JFrame {
         grid = (new GridBuilder(BoardProperties.BOARD_ROWS,BoardProperties.BOARD_COLUMNS).getGrid());
 
         gameView = new GameOfLifeView(grid);
+        game = new GameOfLife(grid);
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game = new GameOfLife(grid);
-                gameView.setGrid(game.grid);
+                game.advanceGeneration();
+                gameView.setGrid(game.getGrid());
                 repaint();
             }
         };
-        Timer timer = new Timer(4000, listener);
+        Timer timer = new Timer(500, listener);
         timer.setRepeats(true);
         timer.start();
 

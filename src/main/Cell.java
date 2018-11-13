@@ -16,6 +16,7 @@ public class Cell {
     public Cell(int rowLocation, int columnLocation) {
         this.rowLocation = rowLocation;
         this.columnLocation = columnLocation;
+        this.state = State.neverLived;
     }
 
     public int getRowLocation() {
