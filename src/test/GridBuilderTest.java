@@ -2,7 +2,7 @@ package test;
 
 import main.Grid;
 import main.GridBuilder;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 import static junit.framework.TestCase.assertNotNull;
