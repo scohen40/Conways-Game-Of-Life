@@ -1,33 +1,44 @@
 package main;
 
 public class GameOfLife {
-    public Grid grid;   //grid reference
+    private Grid grid;   //grid reference
 
     public GameOfLife(Grid grid) {
         this.grid = grid;
     }
 
-    private void advanceGeneration(Grid grid) {
+    public Grid getGrid() {
+        return grid;
+    }
+
+    public void advanceGeneration() {
         int aliveNeighbors;
+        Grid oldGrid = grid;
+        Grid newGrid = new Grid(grid.getRows(), grid.getColumns());
 
         for (int i = 0; i < grid.getRows(); i++) {
             for (int j = 0; j < grid.getColumns(); j++) {
-                Cell current = grid.getGrid()[i][j];
+                Cell current = oldGrid.getGrid()[i][j];
+                Cell newCell = new Cell(i, j);
+                newGrid.getGrid()[i][j] = newCell;
                 aliveNeighbors = getAliveNeighbors(current);
 
                 if (current.getState() == Cell.State.alive) {
+                    newCell.setState(Cell.State.alive);
                     if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                        current.setState(Cell.State.dead);
+                        newCell.setState(Cell.State.dead);
                     }
                 } else {
+                    newCell.setState(Cell.State.dead);
                     if (aliveNeighbors == 3) {
-                        current.setState(Cell.State.alive);
+                        newCell.setState(Cell.State.alive);
                     }
                 }
 
 
             }
         }
+        this.grid = newGrid;
     }
 
     public int getAliveNeighbors(Cell cell) {

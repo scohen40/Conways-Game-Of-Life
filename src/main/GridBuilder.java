@@ -22,29 +22,13 @@ public class GridBuilder {
         for (int row = 0; row < grid.getGrid().length; row++) {
             for (int col = 0; col < grid.getGrid().length; col++) {
                 grid.getGrid()[row][col] = new Cell(row, col);
-                switch (rand.nextInt(7)) {
+                switch (rand.nextInt(2)) {
                     case 0:
                         grid.getGrid()[row][col].setState(Cell.State.alive);
                         break;
                     case 1:
                         grid.getGrid()[row][col].setState(Cell.State.dead);
                         break;
-                    case 2:
-                        grid.getGrid()[row][col].setState(Cell.State.dead);
-                        break;
-                    case 3:
-                        grid.getGrid()[row][col].setState(Cell.State.dead);
-                        break;
-                    case 4:
-                        grid.getGrid()[row][col].setState(Cell.State.dead);
-                        break;
-                    case 5:
-                        grid.getGrid()[row][col].setState(Cell.State.dead);
-                        break;
-                    case 6:
-                        grid.getGrid()[row][col].setState(Cell.State.dead);
-                        break;
-
                     default:
                         grid.getGrid()[row][col].setState(Cell.State.neverLived);
                 }
@@ -56,26 +40,6 @@ public class GridBuilder {
 
     public Grid getGrid() {
         return grid;
-    }
-
-    public void setGrid(Grid grid) {
-        this.grid = grid;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
-    public int getColumns() {
-        return columns;
-    }
-
-    public void setColumns(int columns) {
-        this.columns = columns;
     }
 
 }
