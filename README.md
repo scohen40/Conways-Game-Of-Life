@@ -5,12 +5,6 @@
 3. Any live cell with more than three live neighbors dies, as if by overpopulation.
 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
-**OPTIONAL TO DO**
-***
-* Different Sized Grid Options
-* Different Pattern Options
-* Different Timer Options
-
 ***Authors of this Application***
 ***
 * Chava Forer
